@@ -1,12 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using OptionMenuCreator.Attributes;
 
 namespace OptionMenuCreator
 {
-    public class OptionMenu
+    public abstract class OptionMenu
     {
+        [NotEditable]
+        public string title;
+
+        public OptionMenu()
+        {
+
+        }
     }
 }
