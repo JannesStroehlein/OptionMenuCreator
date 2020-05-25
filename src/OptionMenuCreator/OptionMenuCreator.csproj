@@ -38,6 +38,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,13 +54,12 @@
     <Compile Include="Attributes\TextboxAttribute.cs" />
     <Compile Include="OptionMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Window\OptionWindow.xaml.cs">
-      <DependentUpon>OptionWindow.xaml</DependentUpon>
+    <Compile Include="Window\OptionMenuControll.xaml.cs">
+      <DependentUpon>OptionMenuControll.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Page Include="Window\OptionWindow.xaml">
+    <Page Include="Window\OptionMenuControll.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -12,7 +12,9 @@ namespace Test
     {
         static void Main(string[] args)
         {
-            
+            Menu menu = new Menu();
+            menu.ShowWindow();
+            Console.ReadKey();
         }
     }
     class Menu : OptionMenu
@@ -25,7 +27,7 @@ namespace Test
 
         public Menu() : base()
         {
-            this.title = "TestMenu";
+            this.Title = "TestMenu";
         }
     }
 }

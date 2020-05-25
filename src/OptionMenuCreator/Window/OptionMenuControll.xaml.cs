@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace OptionMenuCreator.Window
 {
     /// <summary>
-    /// Interaktionslogik für OptionWindow.xaml
+    /// Interaktionslogik für OptionMenuControll.xaml
     /// </summary>
-    public partial class OptionWindow : Window
+    public partial class OptionMenuControll : UserControl
     {
-        public OptionWindow()
+        public OptionMenuControll()
         {
             InitializeComponent();
         }
