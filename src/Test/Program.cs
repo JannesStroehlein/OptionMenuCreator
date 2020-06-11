@@ -20,10 +20,10 @@ namespace Test
     class Menu : OptionMenu
     {
         [Slider(0, 1)]
-        public double d1 = 0.24;
+        public double d1 { get; set; }
 
         [Textbox(false, 16)]
-        public string t1 = "Hallo Welt!";
+        public string t1 { get; set; }
 
         public Menu() : base()
         {

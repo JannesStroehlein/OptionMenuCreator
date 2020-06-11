@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Reflection;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,7 +25,7 @@ namespace OptionMenuCreator
         public OptionMenu()
         {
             this.Title = "Options";
-            this.windowThread = new Thread(ThreadMethod);
+            this.windowThread = new Thread(this.ThreadMethod);
             this.windowThread.SetApartmentState(ApartmentState.STA);
             this.windowThread.Name = this.Title;
         }
@@ -43,11 +45,37 @@ namespace OptionMenuCreator
             this.window.Height = 450;
             this.window.Width = 300;
             this.menu = new OptionMenuControll();
+            this.BakeMenu();
             this.window.Content = this.menu;
-            this.menu.Left.Children.Add(this.CreateLabelWithText("Left"));
-            this.menu.Right.Children.Add(this.CreateLabelWithText("Right"));
             this.window.Show();
             Dispatcher.Run();
+        }
+        private void BakeMenu()
+        {
+            Type caller = this.GetType();
+            foreach (PropertyInfo info in caller.GetProperties())
+            {
+                if (info.CanWrite & info.CanWrite)
+                {
+                    foreach (Attribute attrib in info.GetCustomAttributes<Attribute>())
+                    {
+                        if (attrib.GetType() == typeof(NotEditableAttribute))
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            break;
+                        }
+                        else
+                            Console.ForegroundColor = ConsoleColor.Green;
+                    }
+                    Console.WriteLine(info.Name);
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGray;
+                    Console.WriteLine(info.Name);
+                }            
+            }
+            Console.ResetColor();
         }
     }
 }
